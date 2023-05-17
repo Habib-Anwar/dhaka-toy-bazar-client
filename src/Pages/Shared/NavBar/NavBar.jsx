@@ -9,8 +9,8 @@ const NavBar = () => {
         </div>
         <div style={{marginRight:'455px'}} className='space-x-8'>
             <Link to='/' className='btn btn-outline btn-info'>Home</Link>
-            <Link className='btn btn-outline btn-info'>All Toys</Link>
-            <Link className='btn btn-outline btn-info'>Blogs</Link>
+            <Link to='/all-toys' className='btn btn-outline btn-info'>All Toys</Link>
+            <Link to='/blogs' className='btn btn-outline btn-info'>Blogs</Link>
         </div>
         <div className="flex-none gap-2">
           <div className="dropdown dropdown-end">
