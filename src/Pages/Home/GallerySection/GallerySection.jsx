@@ -2,6 +2,8 @@ import './GallerySection.css'
 
 const GallerySection = ({ image, title, description }) => {
     return (
+      <>
+      
         <div className="grid-item">
       <img src={image} alt={title} />
       <div className="overlay">
@@ -11,6 +13,7 @@ const GallerySection = ({ image, title, description }) => {
         </div>
       </div>
     </div>
+    </>
     );
 };
 
