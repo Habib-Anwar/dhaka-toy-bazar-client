@@ -1,3 +1,4 @@
+
 import Banner from "../Banner/Banner";
 import GallerySection from "../GallerySection/GallerySection";
 import Shop from "../Shop/Shop";
@@ -6,6 +7,8 @@ import Shop from "../Shop/Shop";
 
 
 const Home = () => {
+
+
     const gridData = [
         {
           id: 1,

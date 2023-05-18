@@ -1,9 +1,21 @@
 import './Shop.css'
 import Tab from '@mui/material/Tab';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import ShopCard from './ShopCard';
 
 
 const Shop = () => {
+    const [categories, setCategories] = useState([]);
+    const [activeTab, setActiveTab] = useState("Marvel");
+
+    useEffect(()=>{
+        fetch("shopCategory.json")
+        .then(res =>res.json())
+        .then(data =>setCategories(data))
+    }, []);
+
+    const result = categories?.filter(status=>status.category == activeTab)
+    console.log(result)
 
     const [value, setValue] = useState('1');
     const handleChange = (id) => {
@@ -20,7 +32,15 @@ const Shop = () => {
               <Tab className='btn btn-outline btn-success' label="Star Wars" value="3" onClick={()=>{handleChange(3)}}/>
             </div>
           </div>
-          <div className={value === 1? 'show-content': 'content'} value="1">Item one</div>
+          <div className={value === 1? 'show-content': 'content'} value="1">
+            <div>
+                {
+                    result.map(re=><ShopCard
+                    key={re.id}
+                    re={re}></ShopCard>)
+                }
+            </div>
+          </div>
           <div className={value === 2? 'show-content': 'content'} value="2">Item Two</div>
           <div className={value === 3? 'show-content': 'content'} value="3">Item Three</div>
         </div>
