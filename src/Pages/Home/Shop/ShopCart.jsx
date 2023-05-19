@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const ShopCart = ({star}) => {
@@ -10,7 +11,7 @@ const ShopCart = ({star}) => {
             <h3 className="text-lg font-bold">{name}</h3>
             <p className="font-semibold">${price}</p>
             <p>{rating}</p>
-            <button className="btn btn-info">View Details</button>
+            <Link to='/login'><button className="btn btn-info">View Details</button></Link>
         </div>
     </div>
     );
