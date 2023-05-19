@@ -2,11 +2,15 @@ import './Shop.css'
 import Tab from '@mui/material/Tab';
 import { useEffect, useState } from 'react';
 import ShopCard from './ShopCard';
+import ShopMart from './ShopMart';
+import ShopCart from './ShopCart';
 
 
 const Shop = () => {
     const [categories, setCategories] = useState([]);
     const [activeTab, setActiveTab] = useState("Marvel");
+    const [productTab, setProductTab] = useState("Disney");
+    const [starTab, setStarTab] = useState("Star");
 
     useEffect(()=>{
         fetch("shopCategory.json")
@@ -14,8 +18,10 @@ const Shop = () => {
         .then(data =>setCategories(data))
     }, []);
 
-    const result = categories?.filter(status=>status.category == activeTab)
-    console.log(result)
+    const results = categories?.filter(status=>status.category == activeTab);
+    const products = categories?.filter(status =>status.category == productTab);
+    const stars = categories?.filter(status =>status.category == starTab);
+    
 
     const [value, setValue] = useState('1');
     const handleChange = (id) => {
@@ -33,16 +39,32 @@ const Shop = () => {
             </div>
           </div>
           <div className={value === 1? 'show-content': 'content'} value="1">
-            <div>
+            <div className='grid grid-cols-1 lg:grid-cols-2'>
                 {
-                    result.map(re=><ShopCard
-                    key={re.id}
-                    re={re}></ShopCard>)
+                    results.map(result=><ShopCard
+                    key={result.id}
+                    result={result}></ShopCard>)
                 }
             </div>
           </div>
-          <div className={value === 2? 'show-content': 'content'} value="2">Item Two</div>
-          <div className={value === 3? 'show-content': 'content'} value="3">Item Three</div>
+          <div className={value === 2? 'show-content': 'content'} value="2">
+            <div className='grid grid-cols-1 lg:grid-cols-2'>
+              {
+                products.map(product =><ShopMart
+                key={product.id}
+                product={product}></ShopMart>)
+              }
+            </div>
+            </div>
+          <div className={value === 3? 'show-content': 'content'} value="3">
+            <div className='grid grid-cols-1 lg:grid-cols-2'>
+              {
+                stars.map(star=><ShopCart
+                key={star.id}
+                star={star}></ShopCart>)
+              }
+            </div>
+          </div>
         </div>
       </div>
     );

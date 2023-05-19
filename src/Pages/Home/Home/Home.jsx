@@ -1,5 +1,6 @@
 
 import Banner from "../Banner/Banner";
+import Promo from "../ExtraSection/Promo";
 import GallerySection from "../GallerySection/GallerySection";
 import Shop from "../Shop/Shop";
 
@@ -52,6 +53,9 @@ const Home = () => {
     </div>
     <div>
         <Shop></Shop>
+    </div>
+    <div>
+      <Promo></Promo>
     </div>
         </div>
     );
