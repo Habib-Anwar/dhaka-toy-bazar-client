@@ -1,6 +1,7 @@
 
 import Banner from "../Banner/Banner";
 import Promo from "../ExtraSection/Promo";
+import Support from "../ExtraSection/Support";
 import GallerySection from "../GallerySection/GallerySection";
 import Shop from "../Shop/Shop";
 
@@ -56,6 +57,9 @@ const Home = () => {
     </div>
     <div>
       <Promo></Promo>
+    </div>
+    <div>
+      <Support></Support>
     </div>
         </div>
     );
