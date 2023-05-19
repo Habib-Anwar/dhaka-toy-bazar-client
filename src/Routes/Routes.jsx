@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home/Home";
 import Blog from "../Pages/Blog/Blog";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
+import AddToys from "../Pages/AddToys/AddToys";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,11 @@ const router = createBrowserRouter([
         {
           path: "signup",
           element: <SignUp></SignUp>
+        },
+        {
+          path: "addtoys/:id",
+          element: <AddToys></AddToys>,
+          loader: ({params}) => fetch(`http://localhost:5000/bazar/${params.id}`)
         }
       ]
     },
