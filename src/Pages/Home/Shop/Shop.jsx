@@ -13,7 +13,7 @@ const Shop = () => {
     const [starTab, setStarTab] = useState("Star");
 
     useEffect(()=>{
-        fetch("shopCategory.json")
+        fetch("http://localhost:5000/bazar")
         .then(res =>res.json())
         .then(data =>setCategories(data))
     }, []);

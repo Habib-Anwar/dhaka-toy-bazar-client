@@ -2,7 +2,7 @@ import {  FaComments, FaMoneyCheckAlt,  FaRocket,  FaTruck } from 'react-icons/f
 
 const Support = () => {
     return (
-        <div className="bg-slate-400 rounded-lg mt-14 flex justify-between" style={{width: "1280px", height: "350px"}}>
+        <div className="bg-slate-400 rounded-lg mt-24 flex justify-between" style={{width: "1280px", height: "350px"}}>
             <div className='mt-24 p-4'>
             <FaTruck className='text-7xl text-white ml-12'></FaTruck>
             <h3 className='text-xl font-bold text-white ml-8'>Fast Delivery</h3>
