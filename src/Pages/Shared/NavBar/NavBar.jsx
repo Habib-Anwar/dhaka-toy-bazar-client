@@ -19,7 +19,7 @@ const NavBar = () => {
         </div>
         <div style={{marginRight:'455px'}} className='space-x-8'>
             <Link to='/' className='btn btn-outline btn-info'>Home</Link>
-            <Link to='/all-toys' className='btn btn-outline btn-info'>All Toys</Link>
+            <Link to='/alltoys' className='btn btn-outline btn-info'>All Toys</Link>
             <Link to='/blog' className='btn btn-outline btn-info'>Blogs</Link>
         </div>
         <div className="flex-none gap-2">
@@ -32,12 +32,12 @@ const NavBar = () => {
             </label>
             <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
               <li>
-                <a className="justify-between">
-                  Profile
+                <Link to="/alltoys" className="justify-between">
+                  My Toys
                   <span className="badge">New</span>
-                </a>
+                </Link>
               </li>
-              <li><a>Settings</a></li>
+              <li><Link to='/addtoys/:id'>Add Toys</Link></li>
               <li><button onClick={handleLogOut}>Logout</button> </li>
             </ul>
           </div>
