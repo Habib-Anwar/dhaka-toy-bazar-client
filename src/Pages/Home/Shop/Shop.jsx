@@ -42,7 +42,7 @@ const Shop = () => {
             <div className='grid grid-cols-1 lg:grid-cols-2'>
                 {
                     results.map(result=><ShopCard
-                    key={result.id}
+                    key={result._id}
                     result={result}></ShopCard>)
                 }
             </div>
@@ -51,7 +51,7 @@ const Shop = () => {
             <div className='grid grid-cols-1 lg:grid-cols-2'>
               {
                 products.map(product =><ShopMart
-                key={product.id}
+                key={product._id}
                 product={product}></ShopMart>)
               }
             </div>
@@ -60,7 +60,7 @@ const Shop = () => {
             <div className='grid grid-cols-1 lg:grid-cols-2'>
               {
                 stars.map(star=><ShopCart
-                key={star.id}
+                key={star._id}
                 star={star}></ShopCart>)
               }
             </div>
