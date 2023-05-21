@@ -37,7 +37,7 @@ const NavBar = () => {
                   <span className="badge">New</span>
                 </Link>
               </li>
-              <li><Link to='/addtoys/:id'>Add Toys</Link></li>
+              <li><Link to='/addtoys'>Add Toys</Link></li>
               <li><button onClick={handleLogOut}>Logout</button> </li>
             </ul>
           </div>
