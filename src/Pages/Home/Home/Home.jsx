@@ -1,4 +1,5 @@
 
+import useTitle from "../../../hooks/useTitle";
 import Banner from "../Banner/Banner";
 import Promo from "../ExtraSection/Promo";
 import Support from "../ExtraSection/Support";
@@ -9,6 +10,8 @@ import Shop from "../Shop/Shop";
 
 
 const Home = () => {
+
+  useTitle('Home');
 
 
     const gridData = [

@@ -31,7 +31,7 @@ const router = createBrowserRouter([
         {
           path: "addtoys",
           element: <AddToys></AddToys>,
-          loader: () => fetch('http://localhost:5000/bazar')
+          loader: () => fetch('https://dhaka-toy-bazar-server.vercel.app/bazar')
         },
         {
           path: "alltoys",

@@ -2,15 +2,18 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import ToyTable from "./ToyTable";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 
 const AllToys = () => {
     const { user } =useContext(AuthContext);
     const [toys, setToys] = useState([]);
 
+    useTitle('All Toys');
+
     
     useEffect(()=>{
-        fetch(`http://localhost:5000/addingToy?email=${user?.email}`)
+        fetch(`https://dhaka-toy-bazar-server.vercel.app/addingToy?email=${user?.email}`)
         .then(res => res.json())
         .then(data => setToys(data))
     }, [user])
@@ -26,7 +29,7 @@ const AllToys = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/addingToy/${id}`, {
+                fetch(`https://dhaka-toy-bazar-server.vercel.app/addingToy/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -49,7 +52,7 @@ const AllToys = () => {
 
 
     const handleUpdate = id =>{
-        fetch(`http://localhost:5000/addingToy/${id}`, {
+        fetch(`https://dhaka-toy-bazar-server.vercel.app/addingToy/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

@@ -13,7 +13,7 @@ const Shop = () => {
     const [starTab, setStarTab] = useState("Star");
 
     useEffect(()=>{
-        fetch("http://localhost:5000/bazar")
+        fetch("https://dhaka-toy-bazar-server.vercel.app/bazar")
         .then(res =>res.json())
         .then(data =>setCategories(data))
     }, []);
