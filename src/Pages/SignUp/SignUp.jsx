@@ -1,11 +1,17 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const SignUp = () => {
 
     const {createUser} = useContext(AuthContext);
+    const navigate = useNavigate()
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/login';
+    console.log(from);
 
     const handleSignUp = event =>{
         event.preventDefault();
@@ -14,13 +20,24 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.password.value;
         const confirm = form.confirm.value;
-        const photo = form.photo.value;
-        console.log({name, email, password, confirm, photo });
+        const photoURL = form.photoURL.value;
+        console.log({name, email, password, confirm, photoURL });
+        form.reset();
 
         createUser(email, password)
         .then(result =>{
             const user = result.user;
             console.log(user)
+            if (user.email) {
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'success',
+                    title: 'Account create successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+            navigate(from, { replace: true });
         })
         .catch(error => console.log(error))
     }
@@ -52,7 +69,7 @@ const SignUp = () => {
                   </div>
                   <div>
                       <label htmlFor="text" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Photo URL</label>
-                      <input type="text" name="photo" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" />
+                      <input type="text" name="photoURL" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" />
                   </div>
                   <div className="flex items-start">
                       <div className="flex items-center h-5">
