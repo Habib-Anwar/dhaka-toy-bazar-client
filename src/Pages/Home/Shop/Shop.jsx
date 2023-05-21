@@ -33,7 +33,7 @@ const Shop = () => {
             <h2 className='text-4xl font-bold text-orange-500 mt-4'>Shop Now</h2>
           <div className='border-2 bg-base-100 rounded-box p-2 mt-4'>
             <div onChange={handleChange} aria-label="lab API tabs example">
-              <Tab className='btn btn-outline bg-emerald-900 ' label="Marvel" value="1" onClick={()=>{handleChange(1)}}/>
+              <Tab className='btn btn-outline bg-emerald-900' label="Marvel" value="1" onClick={()=>{handleChange(1)}}/>
               <Tab className='btn btn-outline btn-secondary' label="Disney" value="2" onClick={()=>{handleChange(2)}}/>
               <Tab className='btn btn-outline btn-success' label="Star Wars" value="3" onClick={()=>{handleChange(3)}}/>
             </div>
